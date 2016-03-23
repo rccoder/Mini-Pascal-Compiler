@@ -29,6 +29,7 @@ void display(Token token[], int tokenCount) {
         }
 }
 
+
 int main(int argc, char * argv[]) {
 
 
@@ -67,7 +68,6 @@ int main(int argc, char * argv[]) {
 
         // spance TAB LF
         if(!(ch == 32 || ch == 9|| ch == 10)) {
-
 
             // id and other important word
             if(isalpha(ch)) {
