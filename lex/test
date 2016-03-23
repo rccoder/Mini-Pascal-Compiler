@@ -1,10 +1,25 @@
+program a;
+    var m, n: integer;
+    procedure gcd(m, n): integer;
+        begin
+            if n > m then return(gcd(n, m))
+                else if n = 0 then return(m)
+                    else return(gcd(n, rem(m, n)));
+        end;
+    begin
+        read(m, n);
+        gcd(m, n);
+    end
 
-int main(int argc, char const *argv[])
-{
-   char str[] = "ss";
-   int i = str;
-   strcat(str, "333");
-   strcat(str, 's');
-   printf("%s\n", str);
-  return 0;
-}
+program fuck_you(input, output);
+var a, b, c, i: integer;
+begin
+    readln(a, b);
+    c:=a+b;
+    inc(c);
+    write(a:5, b:5, c:5);
+    writeln();
+    for i:=1 to 100 do
+        writeln(i);
+    readln;
+end.
