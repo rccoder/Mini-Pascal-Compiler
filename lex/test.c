@@ -1,11 +1,10 @@
 #include <stdio.h>
-#include <string.h>
-
-int main(int argc, char const *argv[])
+#include <ctype.h>
+#include <stdlib.h>
+int main()
 {
-   char str[] = "ss";
-   strcat(str, "333");
-   strcat(str, 's');
-   printf("%s\n", str);
-  return 0;
+    char const * str;
+    str = "123ss";
+    printf("%d\n", atoi(str));
+    return 0;
 }
