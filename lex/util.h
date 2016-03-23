@@ -37,15 +37,16 @@ const char key_words[64][10] = { "", "and", "array", "begin", "case",
                                     "p_mark", "f_stop", "range", "colon",
                                     "assign", "semic", "cap", "exp",
                                     "ls_brac", "rs_brac", "q_mark" };
-// 给字符串添加一个子串
-// 直接改变传进来的字符串
+
+
+
 void pushToken(char * tokenData, char pushch) {
     int length = strlen(tokenData);
     tokenData[length] = pushch;
     tokenData[length+1] = '\0';
 }
 
-// 判断标志符和关键词，并且返回token流
+
 void checkIdentifier(char * tokenData, int * type, char ** c)
 {
     int flag = 1;
@@ -62,4 +63,10 @@ void checkIdentifier(char * tokenData, int * type, char ** c)
         *c = (char*)malloc(sizeof(tokenData));
         strcpy(*c, tokenData);
     }
+}
+
+void pushToToken(int defineNum, int * type, char ** c) {
+    *type = defineNum;
+    *c = (char*)malloc(sizeof(2));
+    strcpy(*c, " ");
 }

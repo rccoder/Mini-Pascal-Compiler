@@ -1,10 +1,8 @@
 #include <stdio.h>
 #include <ctype.h>
 #include <stdlib.h>
-int main()
+int main(int argc, char * argv[])
 {
-    char const * str;
-    str = "123ss";
-    printf("%d\n", atoi(str));
+    printf("%s\n", argv[1]);
     return 0;
 }

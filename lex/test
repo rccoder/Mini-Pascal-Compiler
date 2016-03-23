@@ -15,7 +15,7 @@ program fuck_you(input, output);
 var a, b, c, i: integer;
 begin
     readln(a, b);
-    c:=a+b;
+    c:=a**b;
     inc(c);
     write(a:5, b:5, c:5);
     writeln();

@@ -1,4 +1,4 @@
-// 定义联合体，存储 token 中的值
+// union, the data in Token
 union S
 {
     int i;
@@ -6,7 +6,7 @@ union S
     char * c;
 };
 
-// Token 结构体的定义
+// Token struct
 // _type
 // _data
 typedef struct token

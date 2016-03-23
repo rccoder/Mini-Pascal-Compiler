@@ -5,36 +5,71 @@
 #include "./define.h"
 #include "./util.h"
 #include "./struct.h"
-// 能有多少个token
+
+// there must be less than N token in token array
 #define N 100000
-// token 中的字符串的最大位数
+
+// the value in token and it shoud be the largest length
 #define M 256
 
-int main() {
+// display the result on the screen
+void display(Token token[], int tokenCount) {
+    for(int j = 0; j < tokenCount; j++) {
+            printf("(%s,", output[token[j]._type]);
+            switch(token[j]._type) {
+                case INT:
+                    printf("%d", token[j]._data.i);
+                    break;
+                default:
+                    printf("%s", token[j]._data.c);
+                    break;
+            }
+            printf(")\n");
 
-    // 所有的token数组
+        }
+}
+
+int main(int argc, char * argv[]) {
+
+
+    char filename[100];
+
+    //init the filename
+    if(argc <= 1) {
+        strcpy(filename, "test");
+    } else {
+        strcpy(filename, argv[1]);
+    }
+
+    // all of the token array
+
     Token token[N];
+
+    // the number of the token in array
     int tokenCount = 0;
 
     FILE *fp;
 
-    if((fp = fopen("./test", "r")) == NULL) {
+    // open the file and catch the error
+    if((fp = fopen(filename, "r")) == NULL) {
         printf("\nOpen File Error");
     }
 
 
+    // the data will be pushed in the one of the token in arrays
     char tokenData[M];
-    // 开始扫描文件
+    
     char ch;
     ch = fgetc(fp);
 
 
     while(ch != EOF) {
 
-        // spance TAB LF(换行)，直接略过继续扫描
+        // spance TAB LF
         if(!(ch == 32 || ch == 9|| ch == 10)) {
 
-            // ID+标志符
+
+            // id and other important word
             if(isalpha(ch)) {
 
                 tokenData[0] = ch;
@@ -47,6 +82,8 @@ int main() {
                     pushToken(tokenData, ch);
                     ch = fgetc(fp);
                 }
+
+                // fseek, back the cache
                 fseek(fp, -1L, SEEK_CUR);
                
                 checkIdentifier(tokenData, &token[tokenCount]._type, &token[tokenCount]._data.c);
@@ -75,132 +112,126 @@ int main() {
                 case '*': 
                     ch = fgetc(fp);
                     if(ch == '*') {
-                        token[tokenCount]._type = EXP;
-                        token[tokenCount]._data.c = (char*)malloc(sizeof(2));
-                        strcpy(token[tokenCount]._data.c, " ");
+
+                        pushToToken(EXP, &token[tokenCount]._type, &token[tokenCount]._data.c);
                         
                     } else {
                         fseek(fp, -1L, SEEK_CUR);
-                        token[tokenCount]._type = MULTI;
-                        token[tokenCount]._data.c = (char*)malloc(sizeof(2));
-                        strcpy(token[tokenCount]._data.c, " ");
 
+                        pushToToken(MULTI, &token[tokenCount]._type, &token[tokenCount]._data.c);
+                        
                     }
                     break;
                 case ':':
                     ch = fgetc(fp);
                     if(ch == '=') {
-                        token[tokenCount]._type = ASSIGN;
-                        token[tokenCount]._data.c = (char*)malloc(sizeof(2));
-                        strcpy(token[tokenCount]._data.c, " ");
+                        pushToToken(ASSIGN, &token[tokenCount]._type, &token[tokenCount]._data.c);
                         
                     } else {
                         fseek(fp, -1L, SEEK_CUR);
                         
-                        token[tokenCount]._type = COLON;
-                        token[tokenCount]._data.c = (char*)malloc(sizeof(2));
-                        strcpy(token[tokenCount]._data.c, " ");
+                        pushToToken(COLON, &token[tokenCount]._type, &token[tokenCount]._data.c);
                     }
                     break;
                 case '<':
                     ch = fgetc(fp);
                     if(ch == '=') {
-                        token[tokenCount]._type = LE;
-                        token[tokenCount]._data.c = (char*)malloc(sizeof(2));
-                        strcpy(token[tokenCount]._data.c, " ");
+                        
+                        pushToToken(LE, &token[tokenCount]._type, &token[tokenCount]._data.c);
                         
                     } else if(ch == '>') {
-                        token[tokenCount]._type = NE;
-                        token[tokenCount]._data.c = (char*)malloc(sizeof(2));
-                        strcpy(token[tokenCount]._data.c, " ");
+                        
+                        pushToToken(NE, &token[tokenCount]._type, &token[tokenCount]._data.c);
                         
                     } else {
                         fseek(fp, -1L, SEEK_CUR);
-                        token[tokenCount]._type = LT;
-                        token[tokenCount]._data.c = (char*)malloc(sizeof(2));
-                        strcpy(token[tokenCount]._data.c, " ");
+                        
+                        pushToToken(LT, &token[tokenCount]._type, &token[tokenCount]._data.c);
                         
                     }
                     break;
                 case '=':
-                    token[tokenCount]._type = EQ;
-                    token[tokenCount]._data.c = (char*)malloc(sizeof(2));
-                    strcpy(token[tokenCount]._data.c, " ");
+                    
+                    pushToToken(EQ, &token[tokenCount]._type, &token[tokenCount]._data.c);
                     
                     break;
                 case '>':
                     ch = fgetc(fp);
                     if(ch == '=') {
-                        token[tokenCount]._type = GE;
-                        token[tokenCount]._data.c = (char*)malloc(sizeof(2));
-                        strcpy(token[tokenCount]._data.c, " ");
+                        
+                        pushToToken(GE, &token[tokenCount]._type, &token[tokenCount]._data.c);
                         
                     } else {
                         fseek(fp, -1L, SEEK_CUR);
-                        token[tokenCount]._type = GT;
-                        token[tokenCount]._data.c = (char*)malloc(sizeof(2));
-                        strcpy(token[tokenCount]._data.c, " ");
+                        
+                        pushToToken(GT, &token[tokenCount]._type, &token[tokenCount]._data.c);
                         
                     }
                     break;
                 case '+':
-                    token[tokenCount]._type = PLUS;
-                    token[tokenCount]._data.c = (char*)malloc(sizeof(2));
-                    strcpy(token[tokenCount]._data.c, " ");
+                    
+                    pushToToken(PLUS, &token[tokenCount]._type, &token[tokenCount]._data.c);
                    
                     break;
                 case '-':
-                    token[tokenCount]._type = MINUS;
-                    token[tokenCount]._data.c = (char*)malloc(sizeof(2));
-                    strcpy(token[tokenCount]._data.c, " ");
+                    
+                    pushToToken(MINUS, &token[tokenCount]._type, &token[tokenCount]._data.c);
                     
                     break;
                 case '/':
-                    token[tokenCount]._type = RDIV;
-                    token[tokenCount]._data.c = (char*)malloc(sizeof(2));
-                    strcpy(token[tokenCount]._data.c, " ");
+                    
+                    pushToToken(RDIV, &token[tokenCount]._type, &token[tokenCount]._data.c);
                     
                     break;
                 case ',':
-                    token[tokenCount]._type = COMMA;
-                    token[tokenCount]._data.c = (char*)malloc(sizeof(2));
-                    strcpy(token[tokenCount]._data.c, " ");
+                    
+                    pushToToken(COMMA, &token[tokenCount]._type, &token[tokenCount]._data.c);
                    
                     break;
                 case ';':
-                    token[tokenCount]._type = SEMIC;
-                    token[tokenCount]._data.c = (char*)malloc(sizeof(2));
-                    strcpy(token[tokenCount]._data.c, " ");
+                    
+                    pushToToken(SEMIC, &token[tokenCount]._type, &token[tokenCount]._data.c);
                     
                     break;
                 case '(':
-                    token[tokenCount]._type = LR_BRAC;
-                    token[tokenCount]._data.c = (char*)malloc(sizeof(2));
-                    strcpy(token[tokenCount]._data.c, " ");
+
+                    pushToToken(LR_BRAC, &token[tokenCount]._type, &token[tokenCount]._data.c);
                     
                     break;
                 case ')':
-                    token[tokenCount]._type = RR_BRAC;
-                    token[tokenCount]._data.c = (char*)malloc(sizeof(2));
-                    strcpy(token[tokenCount]._data.c, " ");
+                    
+                    pushToToken(RR_BRAC, &token[tokenCount]._type, &token[tokenCount]._data.c);
                     
                     break;
                 case '[':
-                    token[tokenCount]._type = LS_BRAC;
-                    token[tokenCount]._data.c = (char*)malloc(sizeof(2));
-                    strcpy(token[tokenCount]._data.c, " ");
+                    
+                    pushToToken(LS_BRAC, &token[tokenCount]._type, &token[tokenCount]._data.c);
                     
                     break;
                 case ']':
-                    token[tokenCount]._type = RS_BRAC;
-                    token[tokenCount]._data.c = (char*)malloc(sizeof(2));
-                    strcpy(token[tokenCount]._data.c, " ");
+                    
+                    pushToToken(RS_BRAC, &token[tokenCount]._type, &token[tokenCount]._data.c);
                     
                     break;
+                case '`':
+                    
+                    pushToToken(P_MARK, &token[tokenCount]._type, &token[tokenCount]._data.c);
+
+                    break;
+                case '^':
+                    
+                    pushToToken(CAP, &token[tokenCount]._type, &token[tokenCount]._data.c);
+
+                    break;
+                case '\'':
+                    
+                    pushToToken(Q_MARK, &token[tokenCount]._type, &token[tokenCount]._data.c);
+
+                    break;
                 case '.':
-                    token[tokenCount]._type = F_STOP;
-                    token[tokenCount]._data.c = (char*)malloc(sizeof(2));
-                    strcpy(token[tokenCount]._data.c, " ");
+
+                    pushToToken(F_STOP, &token[tokenCount]._type, &token[tokenCount]._data.c);
+
                 default:
                     break;
             }
@@ -215,18 +246,7 @@ int main() {
     
     fclose(fp);
 
-    for(int j = 0; j < tokenCount; j++) {
-        printf("(%s,", output[token[j]._type]);
-        switch(token[j]._type) {
-            case INT:
-                printf("%d", token[j]._data.i);
-                break;
-            default:
-                printf("%s", token[j]._data.c);
-                break;
-        }
-        printf(")\n");
+    display(token, tokenCount);
 
-    }
     return 0;
 }
