@@ -1,8 +1,10 @@
 #include <stdio.h>
 #include <ctype.h>
 #include <stdlib.h>
+#include <string.h>
 int main(int argc, char * argv[])
 {
-    printf("%s\n", argv[1]);
+    char * tokenData = "3.16";
+    printf("%.2f\n", atof(tokenData));
     return 0;
 }

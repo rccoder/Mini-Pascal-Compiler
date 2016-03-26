@@ -39,7 +39,9 @@ const char key_words[64][10] = { "", "and", "array", "begin", "case",
                                     "ls_brac", "rs_brac", "q_mark" };
 
 
-
+/* 
+ * push the char pusch to the string called tokenData
+ */
 void pushToken(char * tokenData, char pushch) {
     int length = strlen(tokenData);
     tokenData[length] = pushch;
@@ -47,6 +49,9 @@ void pushToken(char * tokenData, char pushch) {
 }
 
 
+/*
+ * check the ID and others, and the return the token which was chenged
+ */
 void checkIdentifier(char * tokenData, int * type, char ** c)
 {
     int flag = 1;

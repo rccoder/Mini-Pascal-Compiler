@@ -20,6 +20,9 @@ void display(Token token[], int tokenCount) {
                 case INT:
                     printf("%d", token[j]._data.i);
                     break;
+                 case REAL:
+                    printf("%f", token[j]._data.f);
+                    break;
                 default:
                     printf("%s", token[j]._data.c);
                     break;
@@ -96,17 +99,36 @@ int main(int argc, char * argv[]) {
 
                 ch = fgetc(fp);
 
-                while(isdigit(ch)) {
-
+                // real number
+                if(ch == '.') {
                     
                     pushToken(tokenData, ch);
                     ch = fgetc(fp);
-                }
+                    
+                    while(isdigit(ch)) {
+                        pushToken(tokenData, ch);
+                        ch = fgetc(fp);
+                    }
+                    
+                    fseek(fp, -1L, SEEK_CUR);
+                    
+                     token[tokenCount]._type = REAL;
+                     token[tokenCount]._data.f =  atof(tokenData);
+                     
+                } else {
+                    while(isdigit(ch)) {
 
-                fseek(fp, -1L, SEEK_CUR);
+                        
+                        pushToken(tokenData, ch);
+                        ch = fgetc(fp);
+                    }
+
+                    fseek(fp, -1L, SEEK_CUR);
+                    
+                    token[tokenCount]._type = INT;
+                    token[tokenCount]._data.i =  atoi(tokenData);
+                }
                 
-                token[tokenCount]._type = INT;
-                token[tokenCount]._data.i =  atoi(tokenData);
 
             } else switch(ch) {
                 case '*': 
