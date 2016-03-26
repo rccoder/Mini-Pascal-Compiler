@@ -36,6 +36,7 @@ void display(Token token[], int tokenCount) {
 int main(int argc, char * argv[]) {
 
 
+
     char filename[100];
 
     //init the filename
@@ -66,6 +67,8 @@ int main(int argc, char * argv[]) {
     char ch;
     ch = fgetc(fp);
 
+
+    int judgeQmark = 0;
 
     while(ch != EOF) {
 
@@ -116,6 +119,7 @@ int main(int argc, char * argv[]) {
                      token[tokenCount]._data.f =  atof(tokenData);
                      
                 } else {
+                    // int
                     while(isdigit(ch)) {
 
                         
@@ -248,6 +252,37 @@ int main(int argc, char * argv[]) {
                 case '\'':
                     
                     pushToToken(Q_MARK, &token[tokenCount]._type, &token[tokenCount]._data.c);
+                    
+                    ch = fgetc(fp);
+                    tokenData[0] = '\0';
+                    
+                    judgeQmark = 0;
+                    tokenCount ++;
+                    
+                    // string
+                    while(isalnum(ch)) {
+                        
+                        judgeQmark = 1;    
+                        
+                        pushToken(tokenData, ch);
+                        
+                        ch = fgetc(fp);
+                        
+                        if(ch == '\'') {
+                            token[tokenCount]._type = STRING;
+                            token[tokenCount]._data.c = (char*)malloc(2);
+                            strcpy(token[tokenCount]._data.c, tokenData); 
+                            
+                            fseek(fp, -1L, SEEK_CUR);
+                        
+                        }
+                    }
+                    
+                    if(!judgeQmark) {
+                        tokenCount --;
+                    }
+                    
+                    //pushToToken(Q_MARK, &token[tokenCount]._type, &token[tokenCount]._data.c);
 
                     break;
                 case '.':

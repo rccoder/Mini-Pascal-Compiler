@@ -13,11 +13,13 @@ program a;
 
 program fuck_you(input, output);
 var a, b, c, i: integer;
+var d : string;
 begin
     readln(a, b);
     c:=a**b;
     inc(c);
     write(a:5.88, b:5, c:5);
+    write(d:'23adf');
     writeln();
     for i:=1 to 100 do
         writeln(i);
