@@ -286,8 +286,14 @@ int main(int argc, char * argv[]) {
 
                     break;
                 case '.':
-
-                    pushToToken(F_STOP, &token[tokenCount]._type, &token[tokenCount]._data.c);
+                    ch = fgetc(fp);
+                    if(ch == '.') {
+                        pushToToken(RANGE, &token[tokenCount]._type, &token[tokenCount]._data.c);
+                    } else {
+                        fseek(fp, -1L, SEEK_CUR);
+                        pushToToken(F_STOP, &token[tokenCount]._type, &token[tokenCount]._data.c);    
+                    }
+                    
 
                 default:
                     break;
