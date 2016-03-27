@@ -260,7 +260,8 @@ int main(int argc, char * argv[]) {
                     tokenCount ++;
                     
                     // string
-                    while(isalnum(ch)) {
+                    if(isalnum(ch)) {
+                        while(isalnum(ch)) {
                         
                         judgeQmark = 1;    
                         
@@ -275,8 +276,12 @@ int main(int argc, char * argv[]) {
                             
                             fseek(fp, -1L, SEEK_CUR);
                         
-                        }
+                            }
+                        }    
+                    } else {
+                        fseek(fp, -1L, SEEK_CUR);
                     }
+                    
                     
                     if(!judgeQmark) {
                         tokenCount --;
@@ -286,15 +291,24 @@ int main(int argc, char * argv[]) {
 
                     break;
                 case '.':
+                
+                    //printf("1%c\n", ch);
+                   //printf("3\n");
                     ch = fgetc(fp);
+                    //printf("2%c\n", ch);
+                    //ch = fgetc(fp);
+                    //printf("4%c\n", ch);
                     if(ch == '.') {
+                        printf("4\n");
                         pushToToken(RANGE, &token[tokenCount]._type, &token[tokenCount]._data.c);
                     } else {
-                        fseek(fp, -1L, SEEK_CUR);
+                        
+                        //fseek(fp, -1L, SEEK_CUR);
                         pushToToken(F_STOP, &token[tokenCount]._type, &token[tokenCount]._data.c);    
                     }
                     
-
+                  //  pushToToken(F_STOP, &token[tokenCount]._type, &token[tokenCount]._data.c);
+                    break;
                 default:
                     break;
             }
