@@ -4,7 +4,8 @@
 #include <string.h>
 int main(int argc, char * argv[])
 {
-    char * tokenData = "3.16";
-    printf("%.2f\n", atof(tokenData));
+    int a = 0;
+    a += 'c';
+    printf("%d", a);
     return 0;
 }
