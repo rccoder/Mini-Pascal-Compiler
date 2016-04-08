@@ -14,8 +14,9 @@ typedef struct HashNode {
 
 // hash 表 —— 保存 hash 表本身
 typedef struct HashTable {
-    // hash 表的长度
+    // hashtable 最大长度
     int size;
+    // hashtable 现有长度
     int item_size;
     HashNode * head;
 } HashTable;
@@ -38,6 +39,7 @@ HashTable * hashtable_init(int size) {
     hashtable->size = size;
     hashtable->item_size = 0;
     
+    // 开最大长度的空间
     HashNode * head = (HashNode*)calloc(size, sizeof(HashNode));
     
     hashtable->head = head;
@@ -53,7 +55,7 @@ HashTable * hashtable_put(HashTable *hashtable, char * key, char * value) {
     HashNode *hashNode = hashtable->head + index;
     
     while(true) {
-        // 曾经没有的情况 或者 已经存在
+        // 曾经没有的情况 或者 有，并且第一个就是
         if(hashNode->key == NULL || *key == *(hashNode->key)) {
             
             if(hashNode->key == NULL) {
@@ -66,8 +68,10 @@ HashTable * hashtable_put(HashTable *hashtable, char * key, char * value) {
         }
         
         // 冲突
+        // 下一个节点还不是空
         if(hashNode->key != NULL) {
             hashNode = hashNode->next;
+            // 下个节点是空了，加数据
         } else {
             HashNode * newNode = (HashNode*)calloc(1, sizeof(HashNode));
             newNode->key = key;
@@ -94,10 +98,14 @@ char * hashtable_get(HashTable * hashtable, char * key) {
 }
 
 int main() {
-    HashTable * hashtable = hashtable_init(10);
+    HashTable * hashtable = hashtable_init(4);
     hashtable_put(hashtable, "a", "v");
     hashtable_put(hashtable, "b", "dxxx");
+     hashtable_put(hashtable, "d", "dxxxxxxxxxxxxxxxxx");
+     hashtable_put(hashtable, "d", "d");
     
-    printf("%s", hashtable_get(hashtable, "b"));
+    printf("%s", hashtable_get(hashtable, "d"));
+    printf("%s", hashtable_get(hashtable, "c"));
+    printf("%d", hashtable->item_size);
     return 0;
 }
