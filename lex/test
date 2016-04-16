@@ -1,4 +1,4 @@
-program a;
+program a; //sss
     var m, n: integer;
     procedure gcd(m, n): integer;
         begin

@@ -4,23 +4,6 @@
 #include <string.h>
 #include <stdlib.h>
 
-// hashnode 节点 —— 实际保存数据的单链表
-typedef struct HashNode {
-    char * key;
-    char * value;
-    HashNode * next;
-} HashNode;
-
-
-// hash 表 —— 保存 hash 表本身
-typedef struct HashTable {
-    // hashtable 最大长度
-    int size;
-    // hashtable 现有长度
-    int item_size;
-    HashNode * head;
-} HashTable;
-
 
 // hash method
 int hash(char * key, int size) {
@@ -96,16 +79,17 @@ char * hashtable_get(HashTable * hashtable, char * key) {
     }
     return NULL;
 }
-
+/*
 int main() {
-    HashTable * hashtable = hashtable_init(4);
+    HashTable * hashtable = hashtable_init(3);
     hashtable_put(hashtable, "a", "v");
     hashtable_put(hashtable, "b", "dxxx");
-     hashtable_put(hashtable, "d", "dxxxxxxxxxxxxxxxxx");
-     hashtable_put(hashtable, "d", "d");
+    hashtable_put(hashtable, "d", "dxxxxxxxxxxxxxxxxx");
+    hashtable_put(hashtable, "d", "d");
     
     printf("%s", hashtable_get(hashtable, "d"));
     printf("%s", hashtable_get(hashtable, "c"));
     printf("%d", hashtable->item_size);
     return 0;
 }
+*/

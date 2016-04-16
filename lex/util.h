@@ -1,7 +1,6 @@
-#include <stdio.h>
-#include <ctype.h>
-#include <string.h>
-#include <stdlib.h>
+#include "stdafx.h"
+#include "struct.h"
+#include "../lib/hash.c"
 
 const char output[64][10] = { "", 
                                 "AND", "ARRAY", "BEGIN", "CASE",
@@ -51,10 +50,12 @@ void pushToken(char * tokenData, char pushch) {
 
 /*
  * check the ID and others, and the return the token which was chenged
+ * 这里应该优化
  */
 void checkIdentifier(char * tokenData, int * type, char ** c)
 {
     int flag = 1;
+    // 在符号表里找到
     for(int i = 1; i < 36; i++) {
         if(strcmp(tokenData, key_words[i]) == 0) {
             flag = 0;
@@ -63,6 +64,7 @@ void checkIdentifier(char * tokenData, int * type, char ** c)
             strcpy(*c, " "); 
         }
     }
+    // 没有找到
     if (flag) {
         *type = ID;
         *c = (char*)malloc(sizeof(tokenData));
@@ -75,3 +77,4 @@ void pushToToken(int defineNum, int * type, char ** c) {
     *c = (char*)malloc(sizeof(2));
     strcpy(*c, " ");
 }
+
