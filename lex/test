@@ -21,7 +21,7 @@ begin
     write(a:5.88, b:5 .. 6, c:5);
     write(d:'23adf');
     writeln();
-    for i:=1 to 100 do
+    for i:==1 to 100 do
         writeln(i);
     readln;
 end.

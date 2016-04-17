@@ -3,6 +3,7 @@
 // #include "./util.h"
 #include "./struct.h"
 // #include "../lib/hash.c"
+#include <stack>
 
 // there must be less than N token in token array
 #define N 100000
@@ -249,7 +250,7 @@ int main(int argc, char * argv[]) {
         
                 if(ch == '/') {
                     // 消除歧义
-                     tokenCount --;
+                    tokenCount --;
                     ch = fgetc(fp); 
                     while(ch != '\n'){
                         ch = fgetc(fp);
@@ -342,7 +343,16 @@ int main(int argc, char * argv[]) {
                 case ':':
                     ch = fgetc(fp);
                     if(ch == '=') {
-                        pushToToken(ASSIGN, &token[tokenCount]._type, &token[tokenCount]._data.c);
+                        ch = fgetc(fp);
+                        // :==错误
+                        if(ch == '=') {
+                            printf("Error in: :==\n");
+                            tokenCount --;
+                        } else {
+                            fseek(fp, -1L, SEEK_CUR);
+                            pushToToken(ASSIGN, &token[tokenCount]._type, &token[tokenCount]._data.c);    
+                        }
+                        
                         
                     } else {
                         fseek(fp, -1L, SEEK_CUR);
