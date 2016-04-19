@@ -1,9 +1,4 @@
-#include "stdafx.h"
-#include "./define.h"
-// #include "./util.h"
-#include "./struct.h"
-// #include "../lib/hash.c"
-#include <stack>
+#include "lex.h"
 
 // there must be less than N token in token array
 #define N 100000
@@ -11,236 +6,16 @@
 // the value in token and it shoud be the largest length
 #define M 256
 
-const char output[64][10] = { "", 
-                                "AND", "ARRAY", "BEGIN", "CASE",
-                                "CONST", "DIV", "DO", "DOWNTO",
-                                "ELSE", "END", "FILE", "FOR",
-                                "FUNCTION", "GOTO", "IF", "IN",
-                                "LABEL", "MOD", "NIL", "NOT",
-                                "OF", "OR", "PACKED", "PROCEDURE",
-                                "PROGRAM", "RECORD", "REPEAT", "SET",
-                                "THEN", "TO", "TYPE", "UNTIL",
-                                "VAR", "WHILE", "WITH", "ID",
-                                "INT", "REAL", "STRING", "PLUS",
-                                "MINUS", "MULTI", "RDIV", "EQ",
-                                "LT", "GT", "LE", "GE",
-                                "NE", "LR_BRAC", "RR_BRAC", "COMMA",
-                                "P_MARK", "F_STOP", "RANGE", "COLON",
-                                "ASSIGN", "SEMIC", "CAP", "EXP",
-                                "LS_BRAC", "RS_BRAC", "Q_MARK" };
-
-const char key_words[64][10] = { "", "and", "array", "begin", "case",
-                                    "const", "div", "do", "downto",
-                                    "else", "end", "file", "for",
-                                    "function", "goto", "if", "in",
-                                    "label", "mod", "nil", "not",
-                                    "of", "or", "packed", "procedure",
-                                    "program", "record", "repeat", "set",
-                                    "then", "to", "type", "until",
-                                    "var", "while", "with", "id",
-                                    "int", "real", "string", "plus",
-                                    "minus", "multi", "rdiv", "eq",
-                                    "lt", "gt", "le", "ge", "ne",
-                                    "lr_brac", "rr_brac", "comma",
-                                    "p_mark", "f_stop", "range", "colon",
-                                    "assign", "semic", "cap", "exp",
-                                    "ls_brac", "rs_brac", "q_mark" };
-
-
-/* 
- * push the char pusch to the string called tokenData
- */
-void pushToken(char * tokenData, char pushch) {
-    int length = strlen(tokenData);
-    tokenData[length] = pushch;
-    tokenData[length+1] = '\0';
-}
-
-
-/*
- * check the ID and others, and the return the token which was chenged
- * 这里应该优化
- */
-void checkIdentifier(char * tokenData, int * type, char ** c)
-{
-    int flag = 1;
-    // 在符号表里找到
-    for(int i = 1; i < 36; i++) {
-        if(strcmp(tokenData, key_words[i]) == 0) {
-            flag = 0;
-            *type = i; 
-            *c = (char*)malloc(2);
-            strcpy(*c, " "); 
-        }
-    }
-    // 没有找到
-    if (flag) {
-        *type = ID;
-        *c = (char*)malloc(sizeof(tokenData));
-        strcpy(*c, tokenData);
-    }
-}
-
-void pushToToken(int defineNum, int * type, char ** c) {
-    *type = defineNum;
-    *c = (char*)malloc(sizeof(2));
-    strcpy(*c, " ");
-}
-
-
-
-// display the result on the screen
-void display(Token token[], int tokenCount) {
-    for(int j = 0; j < tokenCount; j++) {
-            printf("(%s,", output[token[j]._type]);
-            switch(token[j]._type) {
-                case INT:
-                    printf("%d", token[j]._data.i);
-                    break;
-                 case REAL:
-                    printf("%f", token[j]._data.f);
-                    break;
-                default:
-                    printf("%s", token[j]._data.c);
-                    break;
-            }
-            printf(")\n");
-
-        }
-}
-
-
-// hash method
-int hash(char * key, int size) {
-    int rect = 0;
-    while(*key != '\0') {
-        rect += *key;  
-        key ++;
-    }
-    return rect%size;
-}
-
-// init hashtable
-HashTable * hashtable_init(int size) {
+void lex(FILE *fp, Token token[], int * tokenCountPointer) {
     
-    HashTable * hashtable = (HashTable*)calloc(1, sizeof(HashTable));
-    hashtable->size = size;
-    hashtable->item_size = 0;
-    
-    // 开最大长度的空间
-    HashNode * head = (HashNode*)calloc(size, sizeof(HashNode));
-    
-    hashtable->head = head;
-    
-    return hashtable;
-}
-
-// put a var in hashtable
-HashTable * hashtable_put(HashTable *hashtable, char * key, char * value) {
-    
-    int index = hash(key, hashtable->size);
-    
-    HashNode *hashNode = hashtable->head + index;
-    
-    while(true) {
-        // 曾经没有的情况 或者 有，并且第一个就是
-        if(hashNode->key == NULL || *key == *(hashNode->key)) {
-            
-            if(hashNode->key == NULL) {
-                hashtable->item_size = hashtable->item_size + 1;
-            }
-            
-            hashNode->key = key;
-            hashNode->value = value;
-            return 0;
-        }
-        
-        // 冲突
-        // 下一个节点还不是空
-        if(hashNode->key != NULL) {
-            hashNode = hashNode->next;
-            // 下个节点是空了，加数据
-        } else {
-            HashNode * newNode = (HashNode*)calloc(1, sizeof(HashNode));
-            newNode->key = key;
-            newNode->value = value;
-            hashNode->next = newNode;
-            hashtable->item_size = hashtable->item_size + 1;
-            return 0;
-        }
-    }
-}
-
-// get a var
-char * hashtable_get(HashTable * hashtable, char * key) {
-    int index = hash(key, hashtable->size);
-    HashNode *hashNode = hashtable->head + index;
-    
-    while(hashNode != NULL) {
-        if(hashNode->key != NULL && *key == *(hashNode->key)) {
-            return hashNode->value;
-        }
-        hashNode = hashNode->next;
-    }
-    return NULL;
-}
-
-
-void initHashTable(HashTable * hashtable) {
-/*    
-    hashtable_put(hashtable, "a", "v");
-    hashtable_put(hashtable, "b", "dxxx");
-    hashtable_put(hashtable, "d", "dxxxxxxxxxxxxxxxxx");
-    hashtable_put(hashtable, "d", "d");
-    
-    printf("%s", hashtable_get(hashtable, "d"));
-    printf("%s", hashtable_get(hashtable, "c"));
-    printf("%d", hashtable->item_size);
-*/
-}
-
-
-int main(int argc, char * argv[]) {
-
-    char filename[100];
-
-    //init the filename
-    if(argc <= 1) {
-        strcpy(filename, "test");
-    } else {
-        strcpy(filename, argv[1]);
-    }
-
-    // all of the token array
-
-    Token token[N];
-
-    // the number of the token in array
-    int tokenCount = 0;
-
-    FILE *fp;
-
-    // open the file and catch the error
-    if((fp = fopen(filename, "r")) == NULL) {
-        printf("\nOpen File Error");
-    }
-
-
+    int tokenCount = * tokenCountPointer;
     // the data will be pushed in the one of the token in arrays
     char tokenData[M];
     
     char ch;
-    
-    // init the hashtable
-    HashTable * hashtable = hashtable_init(N);
-    
-    initHashTable(hashtable);
+    int judgeQmark = 0;
     
     ch = fgetc(fp);
-
-
-    int judgeQmark = 0;
-
     while(ch != EOF) {
         
         // spance TAB LF
@@ -521,9 +296,5 @@ int main(int argc, char * argv[]) {
         ch = fgetc(fp);
     }
     
-    fclose(fp);
-
-    display(token, tokenCount);
-
-    return 0;
+    * tokenCountPointer = tokenCount;
 }

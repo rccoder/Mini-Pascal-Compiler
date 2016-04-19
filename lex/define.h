@@ -1,5 +1,3 @@
-#include <stdio.h>
-
 #define AND     1
 #define ARRAY   2
 #define BEGIN   3
@@ -63,3 +61,5 @@
 #define LS_BRAC 61
 #define RS_BRAC 62
 #define Q_MARK  63
+
+

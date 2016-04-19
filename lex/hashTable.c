@@ -1,9 +1,4 @@
-#pragma GCC diagnostic ignored "-Wwrite-strings"
-#include <stdio.h>
-#include <ctype.h>
-#include <string.h>
-#include <stdlib.h>
-
+#include "hashTable.h"
 
 // hash method
 int hash(char * key, int size) {
@@ -79,17 +74,3 @@ char * hashtable_get(HashTable * hashtable, char * key) {
     }
     return NULL;
 }
-/*
-int main() {
-    HashTable * hashtable = hashtable_init(3);
-    hashtable_put(hashtable, "a", "v");
-    hashtable_put(hashtable, "b", "dxxx");
-    hashtable_put(hashtable, "d", "dxxxxxxxxxxxxxxxxx");
-    hashtable_put(hashtable, "d", "d");
-    
-    printf("%s", hashtable_get(hashtable, "d"));
-    printf("%s", hashtable_get(hashtable, "c"));
-    printf("%d", hashtable->item_size);
-    return 0;
-}
-*/
