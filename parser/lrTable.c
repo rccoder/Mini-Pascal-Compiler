@@ -2,10 +2,11 @@
 #include "lrTable.h"
 
 // 初始化lrTable
-void lrTable_init() {
+void lrTable_init(lrTable *** t) {
+
     
-    table = NULL;
-    table = (lrTable **)malloc(TABLE_ROW * sizeof(lrTable *));
+    lrTable **table = (lrTable **)malloc(TABLE_ROW * sizeof(lrTable *));
+    *t = table;
     if(table == NULL) {
         printf("Can't malloc the mem in lrTable");
         exit(-1);
@@ -29,12 +30,12 @@ void lrTable_init() {
                 
             }
         }
-        readTableFile();
+        readTableFile(table);
     }
 }
 
 
-void readTableFile() {
+void readTableFile(lrTable ** table) {
     
     FILE * fp;
     char ch;
@@ -65,7 +66,7 @@ void readTableFile() {
                 content[line][index] = 0;
                 line ++;
                 // line 表示的是第几个词， 可以标志 content 是由多少个词组成的
-                insertToTable(content, &col, &row, line);
+                insertToTable(table, content, &col, &row, line);
                 
                 
                 // 新content
@@ -83,7 +84,7 @@ void readTableFile() {
     }
 }
 
-void insertToTable(char content[20][100], int * col, int * row, int line) {
+void insertToTable(lrTable ** table, char content[20][100], int * col, int * row, int line) {
     
     
     int xrow = * row;
@@ -172,9 +173,10 @@ void insertToTable(char content[20][100], int * col, int * row, int line) {
 }
 
 // test [0][45] in pasical LR1 Table (reduce constant_definition_part -> ¦Å)
-void lrTable_test() {
-    printf("\nHere is lrTable test (reduce constant_definition_part -> ¦Å):\n");
+void lrTable_test(lrTable ** table) {
+    printf("\nHere is lrTable test (reduce constant_definition_part :\n");
     printf("status:%d\n", table[0][45].status);
+    fflush(stdout);
     printf("len:%d\n", table[0][45].len);
     printf("content1:%s\n", table[0][45].content[0]);
     printf("content2:%s\n", table[0][45].content[1]);

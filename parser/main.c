@@ -47,9 +47,13 @@ int main(int argc, char * argv[]) {
     
     stack_test(&s);
     
-    lrTable_init();
     
-    lrTable_test();
+    
+    lrTable ** t;
+    
+    lrTable_init(&t);
+    
+    lrTable_test(t);
     
     return 0;
 }
