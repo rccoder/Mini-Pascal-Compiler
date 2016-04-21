@@ -59,3 +59,14 @@ int stack_peek(Stack *s) {
         return tep;    
     }
 }
+
+void stack_test(Stack *s) {
+    
+    printf("Here is stack test function:\n");
+    stack_put(s, 1);
+    stack_put(s, 3);
+    stack_put(s, 2);
+    
+    printf("%d", stack_pop(s));
+    printf("%d", stack_peek(s));
+}

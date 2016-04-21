@@ -44,21 +44,18 @@ int main(int argc, char * argv[]) {
     Stack s;
     
     stack_init(&s);
-    stack_put(&s, 1);
-    stack_put(&s, 3);
-    stack_put(&s, 2);
     
-    printf("%d", stack_pop(&s));
-    printf("%d", stack_peek(&s));
-    
-   
+    stack_test(&s);
     
     lrTable_init();
     
-    printf("\n");
-    printf("%d\n", table[0][45].status);
+    lrTable_test();
+    
     return 0;
 }
+
+
+
 
 
 void readFile(FILE ** fp) {

@@ -170,3 +170,13 @@ void insertToTable(char content[20][100], int * col, int * row, int line) {
     return;
     
 }
+
+// test [0][45] in pasical LR1 Table (reduce constant_definition_part -> ¦Å)
+void lrTable_test() {
+    printf("\nHere is lrTable test (reduce constant_definition_part -> ¦Å):\n");
+    printf("status:%d\n", table[0][45].status);
+    printf("len:%d\n", table[0][45].len);
+    printf("content1:%s\n", table[0][45].content[0]);
+    printf("content2:%s\n", table[0][45].content[1]);
+    printf("content3:%s\n", table[0][45].content[2]);
+}

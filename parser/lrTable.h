@@ -31,6 +31,7 @@ typedef struct lrTable lrTable;
 
 lrTable ** table;
 
+void lrTable_test();
 void insertToTable(char content[20][100], int * col, int * row, int line);
 void readTableFile();
 void lrTable_init();

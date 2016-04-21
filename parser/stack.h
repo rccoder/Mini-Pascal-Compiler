@@ -26,5 +26,5 @@ bool stack_put(Stack *s, int data);
 bool stack_empty(Stack *s);
 int stack_pop(Stack *s);
 int stack_peek(Stack *s);
-
+void stack_test(Stack *s);
 #endif
