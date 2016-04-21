@@ -1,34 +1,38 @@
+
 #include "lrTable.h"
 
 // 初始化lrTable
 void lrTable_init() {
+    
     table = NULL;
-    if((table = (lrTable **)malloc(sizeof(TABLE_ROW * sizeof(lrTable *)))) == NULL) {
+    table = (lrTable **)malloc(TABLE_ROW * sizeof(lrTable *));
+    if(table == NULL) {
         printf("Can't malloc the mem in lrTable");
         exit(-1);
     } else {
         for(int i = 0; i < TABLE_ROW; i++) {
-            if((table[i] = (lrTable *)malloc(TABLE_COL * sizeof(lrTable))) == NULL) {
+            table[i] = (lrTable *)malloc(TABLE_COL * sizeof(lrTable));
+            if(table[i] == NULL) {
                 printf("Cant't malloc the mem in lrTable[i]");
             } else {
                 
                 // 用大多数情况随机一下
                 for(int j = 0; j < TABLE_COL; j++) {
                     table[i][j].status = ERROR;
-                    if(j < ACTION_OR_GO_DIVIDE) {
+                    if(j <= ACTION_OR_GO_DIVIDE) {
                         table[i][j].len = 0;
                     } else {
-                        table[i][j].len = 1;
+                        table[i][j].len = -1;
                     }
                     table[i][j].content = NULL;
                 }
                 
             }
         }
+        readTableFile();
     }
-    
-    readTableFile();
 }
+
 
 void readTableFile() {
     
@@ -47,8 +51,9 @@ void readTableFile() {
        printf("Can't Open LRTable"); 
     } else {
         ch = fgetc(fp);
-        
+       
         while(ch != EOF) {
+           
             if(ch == ' ') {
                 // 中间空格的情况 —— 赋值，换行，索引归一
                 content[line][index] = 0;
@@ -56,28 +61,35 @@ void readTableFile() {
                 index = 0;
             } else if(ch == '\n') {
                 // 换行的情况
+              
                 content[line][index] = 0;
                 line ++;
+                // line 表示的是第几个词， 可以标志 content 是由多少个词组成的
                 insertToTable(content, &col, &row, line);
+                
+                
                 // 新content
                 line = index = 0;
             } else {
-                // 一个词
+                // 一个词的一个字 
                 content[line][index] = ch;
                 index++;
             }
             ch = fgetc(fp);
         }
+        
         fclose(fp);
         return;
     }
 }
 
 void insertToTable(char content[20][100], int * col, int * row, int line) {
-    // printf("1");
+    
+    
     int xrow = * row;
     int ycol = * col;
     int l = line - 1;
+    
     
     // reduce term -> factor
     if(strcmp("reduce", content[0]) == 0) {
@@ -101,9 +113,10 @@ void insertToTable(char content[20][100], int * col, int * row, int line) {
             } else {
                 // 字符串复制，一整行的内容
                 strcpy(table[xrow][ycol].content[i], content[i+1]); 
-                (* col) ++;    
+                 
             }
         }
+        (* col) ++;
         
     // shift
     } else if(strcmp("shift", content[0]) == 0) {
@@ -124,7 +137,7 @@ void insertToTable(char content[20][100], int * col, int * row, int line) {
             exit(-1);
         } else {
             strcpy(table[xrow][ycol].content[0], content[1]);
-            (*col ++);    
+            (*col)++;    
         }
             
     // accept    
@@ -137,13 +150,16 @@ void insertToTable(char content[20][100], int * col, int * row, int line) {
     } else if(strcmp("-1", content[0]) == 0) {
         
         table[xrow][ycol].status = ERROR;
-        
-    } else if(strcmp("lee", content[0]) == 0) {
+        (*col)++;
+    
+    // 表示 LR1 表的一行已经结束  
+    } else if(strcmp("Lee", content[0]) == 0) {
         
         // 表的新一行
         (*row) ++;
-        (*col) = 0;
-        
+        *col = 0;
+    
+    // goto 表
     } else {
         
         table[xrow][ycol].status = GOTO;
@@ -152,5 +168,5 @@ void insertToTable(char content[20][100], int * col, int * row, int line) {
         
     }
     return;
+    
 }
-

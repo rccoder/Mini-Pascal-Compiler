@@ -1,3 +1,4 @@
+
 #ifndef LRT
 #define LRT
 
@@ -7,8 +8,8 @@
 #include <stdlib.h>
 #include <stdbool.h>
 
-#define TABLE_COL 2230
-#define TABLE_ROW 220
+#define TABLE_ROW 2230
+#define TABLE_COL 200
 
 #define ERROR -1
 #define ACCEPT 0
@@ -18,7 +19,8 @@
 
 
 
-#define ACTION_OR_GO_DIVIDE 56
+#define ACTION_OR_GO_DIVIDE 65
+
 struct lrTable {
     char ** content;
     int status;

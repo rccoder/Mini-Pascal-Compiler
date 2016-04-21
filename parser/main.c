@@ -54,8 +54,9 @@ int main(int argc, char * argv[]) {
    
     
     lrTable_init();
+    
     printf("\n");
-    //printf("%d\n", table[0][45].status);
+    printf("%d\n", table[0][45].status);
     return 0;
 }
 
