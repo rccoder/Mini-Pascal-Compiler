@@ -2,7 +2,7 @@
 #include "lrTable.h"
 
 // 初始化lrTable
-void lrTable_init(lrTable *** t) {
+void lrTable_build(lrTable *** t) {
 
     
     lrTable **table = (lrTable **)malloc(TABLE_ROW * sizeof(lrTable *));
@@ -164,7 +164,8 @@ void insertToTable(lrTable ** table, char content[20][100], int * col, int * row
     } else {
         
         table[xrow][ycol].status = GOTO;
-        table[xrow][ycol].len = atoi(content[0]);
+        // 归约到的地方 —— 命名存在歧义！！！
+        strcpy(table[xrow][ycol].content[0], content[0]);
         (*col) ++;
         
     }
@@ -181,4 +182,12 @@ void lrTable_test(lrTable ** table) {
     printf("content1:%s\n", table[0][45].content[0]);
     printf("content2:%s\n", table[0][45].content[1]);
     printf("content3:%s\n", table[0][45].content[2]);
+}
+
+int lrTable_getStatus(lrTable ** table, int row, int col) {
+    return table[row][col].status; 
+}
+
+char * lrTable_getContentZero(lrTable ** table, int row, int col) {
+    return table[row][col].content[0];
 }

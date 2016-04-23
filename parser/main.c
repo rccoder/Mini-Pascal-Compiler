@@ -18,6 +18,8 @@ void display(Token token[], int tokenCount);
 
 int main(int argc, char * argv[]) {
 
+    /* 词法分析开始 */
+    
     // all of the token array
     Token token[N];
     
@@ -38,22 +40,27 @@ int main(int argc, char * argv[]) {
     
     closeFile(&fp);
 
-    display(token, tokenCount);
-
+    // display(token, tokenCount);
+    
+    /* 词法分析结束 */
+    
+    // 语法分析开始
+    
+    // 构建 状态栈，归约栈
+    Stack statusStack, reduceStack;
+    
+    stack_init(&statusStack);
+    stack_init(&reduceStack);
+    
+    // 构建 LR1 分析表
+    lrTable ** table;
    
-    Stack s;
+    lrTable_build(&table);
     
-    stack_init(&s);
+    parse(token, tokenCount, &statusStack, &reduceStack, table);
+   
     
-    stack_test(&s);
-    
-    
-    
-    lrTable ** t;
-    
-    lrTable_init(&t);
-    
-    lrTable_test(t);
+    /* 语法分析结束 */
     
     return 0;
 }

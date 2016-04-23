@@ -8,7 +8,7 @@
 #include <stdbool.h>
 
 struct StackNode {
-    int member;
+    char member[30];
     struct StackNode * next;
 };
 
@@ -22,9 +22,9 @@ struct Stack {
 typedef struct Stack Stack;
 
 void stack_init(Stack *s);
-bool stack_put(Stack *s, int data);
+bool stack_put(Stack *s, char * data);
 bool stack_empty(Stack *s);
-int stack_pop(Stack *s);
-int stack_peek(Stack *s);
+char * stack_pop(Stack *s);
+char * stack_peek(Stack *s);
 void stack_test(Stack *s);
 #endif

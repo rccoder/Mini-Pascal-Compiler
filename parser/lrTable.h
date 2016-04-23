@@ -29,9 +29,11 @@ struct lrTable {
 
 typedef struct lrTable lrTable;
 
+char * lrTable_getContentZero(lrTable ** table, int row, int col);
+int lrTable_getStatus(lrTable ** table, int row, int col);
 void lrTable_test(lrTable ** table);
 void insertToTable(lrTable ** table, char content[20][100], int * col, int * row, int line);
 void readTableFile(lrTable ** table);
-void lrTable_init(lrTable *** table);
+void lrTable_build(lrTable *** table);
 
 #endif

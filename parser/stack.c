@@ -14,12 +14,13 @@ void stack_init(Stack *s) {
     return;
 }
 
-bool stack_put(Stack *s, int data) {
+bool stack_put(Stack *s, char * data) {
     StackNode * newStackNode = (StackNode *)malloc(sizeof(StackNode));
     if(newStackNode == NULL) {
         return false;
     } else {
-        newStackNode->member = data;
+        strcpy(newStackNode->member, data);
+        // newStackNode->member = data;
         newStackNode->next = s->top;
         s->top = newStackNode;
         return true;
@@ -34,14 +35,15 @@ bool stack_empty(Stack *s) {
     }
 }
 
-int stack_pop(Stack *s) {
-    int tep;
+char * stack_pop(Stack *s) {
+    char * tep = (char *)malloc(30*sizeof(char));
     StackNode * stackSwap = NULL;
     
     if(stack_empty(s)) {
         exit(-1);
     } else {
-        tep = s->top->member;
+        strcpy(tep, s->top->member);
+        //tep = s->top->member;
         stackSwap = s->top;
         s->top = s->top->next;
         free(stackSwap);
@@ -49,13 +51,14 @@ int stack_pop(Stack *s) {
     }
 }
 
-int stack_peek(Stack *s) {
-    int tep;
+char * stack_peek(Stack *s) {
+    char * tep = (char *)malloc(30*sizeof(char));
     
     if(stack_empty(s)) {
         exit(-1);
     } else {
-        tep = s->top->member;
+        strcpy(tep, s->top->member);
+        //tep = s->top->member;
         return tep;    
     }
 }
@@ -63,10 +66,10 @@ int stack_peek(Stack *s) {
 void stack_test(Stack *s) {
     
     printf("Here is stack test function:\n");
-    stack_put(s, 1);
-    stack_put(s, 3);
-    stack_put(s, 2);
+    stack_put(s, "1");
+    stack_put(s, "22");
+    stack_put(s, "33");
     
-    printf("%d", stack_pop(s));
-    printf("%d", stack_peek(s));
+    printf("%s", stack_pop(s));
+    printf("%s", stack_peek(s));
 }

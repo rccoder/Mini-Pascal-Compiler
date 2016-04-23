@@ -10,3 +10,4 @@
 #include "lex.h"
 #include "stack.h"
 #include "lrTable.h"
+#include "parse.h"
