@@ -167,6 +167,7 @@ void insertToTable(lrTable ** table, char content[20][100], int * col, int * row
         // 归约到的地方 —— 命名存在歧义！！！
         table[xrow][ycol].content = (char **)malloc(l * sizeof(char *));
         table[xrow][ycol].content[0] = (char*)malloc(100 * sizeof(char));
+        table[xrow][ycol].len = atoi(content[0]);
         
         strcpy(table[xrow][ycol].content[0], content[0]);
         (*col) ++;
