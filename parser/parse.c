@@ -68,7 +68,7 @@ void parse(Token token[], int tokenCount, Stack * statusStack, Stack * reduceSta
     stack_put(reduceStack, "#");
     
     for(int i = 0; i < tokenCount; i++) {
-       /*
+       
        // 即将进来的字符串
        char * commingString = (char *)malloc(20 * sizeof(char));
        // 发生移进的时候将要shift 到的状态，字符串形式 
@@ -104,7 +104,7 @@ void parse(Token token[], int tokenCount, Stack * statusStack, Stack * reduceSta
                 //shift(statusStack, reduceStack, shiftPurpose, commingString);
                 break;
        }
-       */
+       
        
        //lrTable_getStatus(table, row, col);
     }
