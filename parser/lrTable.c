@@ -183,6 +183,7 @@ void lrTable_test(lrTable ** table) {
     printf("status:%d\n", table[0][45].status);
     fflush(stdout);
     printf("len:%d\n", table[0][45].len);
+    
     printf("content1:%s\n", table[0][45].content[0]);
     printf("content2:%s\n", table[0][45].content[1]);
     printf("content3:%s\n", table[0][45].content[2]);

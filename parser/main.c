@@ -40,7 +40,7 @@ int main(int argc, char * argv[]) {
     
     closeFile(&fp);
 
-    // display(token, tokenCount);
+    display(token, tokenCount);
     
     /* 词法分析结束 */
     

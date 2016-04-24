@@ -19,7 +19,7 @@ shift 6
 -1
 -1
 -1
-reduce constant_definition_part -> ¦Å
+reduce constant_definition_part -> e
 -1
 -1
 -1
@@ -43,7 +43,7 @@ reduce constant_definition_part -> ¦Å
 -1
 -1
 -1
-reduce constant_definition_part -> ¦Å
+reduce constant_definition_part -> e
 shift 7
 -1
 -1
@@ -57,13 +57,13 @@ shift 7
 -1
 -1
 -1
-reduce constant_definition_part -> ¦Å
+reduce constant_definition_part -> e
 -1
 -1
-reduce constant_definition_part -> ¦Å
+reduce constant_definition_part -> e
 -1
 -1
-reduce constant_definition_part -> ¦Å
+reduce constant_definition_part -> e
 1
 2
 3
@@ -1024,7 +1024,7 @@ Lee 6
 -1
 -1
 -1
-reduce type_definition_part -> ¦Å
+reduce type_definition_part -> e
 -1
 -1
 -1
@@ -1048,7 +1048,7 @@ reduce type_definition_part -> ¦Å
 -1
 -1
 -1
-reduce type_definition_part -> ¦Å
+reduce type_definition_part -> e
 -1
 -1
 -1
@@ -1065,10 +1065,10 @@ reduce type_definition_part -> ¦Å
 shift 11
 -1
 -1
-reduce type_definition_part -> ¦Å
+reduce type_definition_part -> e
 -1
 -1
-reduce type_definition_part -> ¦Å
+reduce type_definition_part -> e
 -1
 -1
 -1
@@ -1614,7 +1614,7 @@ Lee 9
 -1
 -1
 -1
-reduce label_declaration_part -> ¦Å
+reduce label_declaration_part -> e
 -1
 -1
 -1
@@ -1627,7 +1627,7 @@ reduce label_declaration_part -> ¦Å
 -1
 -1
 -1
-reduce label_declaration_part -> ¦Å
+reduce label_declaration_part -> e
 -1
 -1
 -1
@@ -1648,13 +1648,10 @@ shift 20
 -1
 -1
 -1
-reduce label_declaration_part -> ¦Å
+reduce label_declaration_part -> e
 -1
 -1
-reduce label_declaration_part -> ¦Å
--1
--1
--1
+reduce label_declaration_part -> e
 -1
 -1
 -1
@@ -1665,10 +1662,13 @@ reduce label_declaration_part -> ¦Å
 -1
 -1
 -1
-reduce label_declaration_part -> ¦Å
 -1
 -1
-reduce label_declaration_part -> ¦Å
+-1
+reduce label_declaration_part -> e
+-1
+-1
+reduce label_declaration_part -> e
 -1
 -1
 -1
@@ -2029,7 +2029,7 @@ Lee 11
 -1
 -1
 -1
-reduce variable_declaration_part -> ¦Å
+reduce variable_declaration_part -> e
 -1
 -1
 -1
@@ -2053,7 +2053,7 @@ reduce variable_declaration_part -> ¦Å
 -1
 -1
 -1
-reduce variable_declaration_part -> ¦Å
+reduce variable_declaration_part -> e
 -1
 -1
 -1
@@ -2073,7 +2073,7 @@ reduce variable_declaration_part -> ¦Å
 shift 22
 -1
 -1
-reduce variable_declaration_part -> ¦Å
+reduce variable_declaration_part -> e
 -1
 -1
 -1
@@ -3838,7 +3838,7 @@ shift 31
 -1
 -1
 -1
-reduce constant_definition_part -> ¦Å
+reduce constant_definition_part -> e
 -1
 -1
 -1
@@ -3859,13 +3859,10 @@ reduce constant_definition_part -> ¦Å
 -1
 -1
 -1
-reduce constant_definition_part -> ¦Å
+reduce constant_definition_part -> e
 -1
 -1
-reduce constant_definition_part -> ¦Å
--1
--1
--1
+reduce constant_definition_part -> e
 -1
 -1
 -1
@@ -3876,10 +3873,13 @@ reduce constant_definition_part -> ¦Å
 -1
 -1
 -1
-reduce constant_definition_part -> ¦Å
 -1
 -1
-reduce constant_definition_part -> ¦Å
+-1
+reduce constant_definition_part -> e
+-1
+-1
+reduce constant_definition_part -> e
 -1
 -1
 -1
@@ -4284,7 +4284,7 @@ shift 45
 -1
 -1
 -1
-reduce procedure_and_function_declaration_part -> ¦Å
+reduce procedure_and_function_declaration_part -> e
 -1
 -1
 -1
@@ -6049,7 +6049,7 @@ Lee 31
 -1
 -1
 -1
-reduce type_definition_part -> ¦Å
+reduce type_definition_part -> e
 -1
 -1
 -1
@@ -6070,10 +6070,10 @@ reduce type_definition_part -> ¦Å
 -1
 -1
 -1
-reduce type_definition_part -> ¦Å
+reduce type_definition_part -> e
 -1
 -1
-reduce type_definition_part -> ¦Å
+reduce type_definition_part -> e
 -1
 -1
 -1
@@ -6090,7 +6090,7 @@ reduce type_definition_part -> ¦Å
 shift 78
 -1
 -1
-reduce type_definition_part -> ¦Å
+reduce type_definition_part -> e
 -1
 -1
 -1
@@ -15496,7 +15496,7 @@ Lee 78
 -1
 -1
 -1
-reduce variable_declaration_part -> ¦Å
+reduce variable_declaration_part -> e
 -1
 -1
 -1
@@ -15517,10 +15517,10 @@ reduce variable_declaration_part -> ¦Å
 -1
 -1
 -1
-reduce variable_declaration_part -> ¦Å
+reduce variable_declaration_part -> e
 -1
 -1
-reduce variable_declaration_part -> ¦Å
+reduce variable_declaration_part -> e
 -1
 -1
 -1
@@ -17694,7 +17694,7 @@ Lee 89
 -1
 -1
 -1
-reduce label_declaration_part -> ¦Å
+reduce label_declaration_part -> e
 -1
 -1
 -1
@@ -17707,7 +17707,7 @@ reduce label_declaration_part -> ¦Å
 shift 188
 -1
 shift 189
-reduce label_declaration_part -> ¦Å
+reduce label_declaration_part -> e
 -1
 -1
 -1
@@ -17728,13 +17728,10 @@ shift 20
 -1
 -1
 -1
-reduce label_declaration_part -> ¦Å
+reduce label_declaration_part -> e
 -1
 -1
-reduce label_declaration_part -> ¦Å
--1
--1
--1
+reduce label_declaration_part -> e
 -1
 -1
 -1
@@ -17745,10 +17742,13 @@ reduce label_declaration_part -> ¦Å
 -1
 -1
 -1
-reduce label_declaration_part -> ¦Å
 -1
 -1
-reduce label_declaration_part -> ¦Å
+-1
+reduce label_declaration_part -> e
+-1
+-1
+reduce label_declaration_part -> e
 -1
 -1
 -1
@@ -18498,7 +18498,7 @@ Lee 93
 -1
 -1
 -1
-reduce label_declaration_part -> ¦Å
+reduce label_declaration_part -> e
 -1
 -1
 -1
@@ -18511,7 +18511,7 @@ reduce label_declaration_part -> ¦Å
 shift 188
 -1
 shift 189
-reduce label_declaration_part -> ¦Å
+reduce label_declaration_part -> e
 -1
 -1
 -1
@@ -18532,13 +18532,10 @@ shift 20
 -1
 -1
 -1
-reduce label_declaration_part -> ¦Å
+reduce label_declaration_part -> e
 -1
 -1
-reduce label_declaration_part -> ¦Å
--1
--1
--1
+reduce label_declaration_part -> e
 -1
 -1
 -1
@@ -18549,10 +18546,13 @@ reduce label_declaration_part -> ¦Å
 -1
 -1
 -1
-reduce label_declaration_part -> ¦Å
 -1
 -1
-reduce label_declaration_part -> ¦Å
+-1
+reduce label_declaration_part -> e
+-1
+-1
+reduce label_declaration_part -> e
 -1
 -1
 -1
@@ -18699,7 +18699,7 @@ Lee 94
 -1
 -1
 -1
-reduce label_declaration_part -> ¦Å
+reduce label_declaration_part -> e
 -1
 -1
 -1
@@ -18712,7 +18712,7 @@ reduce label_declaration_part -> ¦Å
 -1
 -1
 -1
-reduce label_declaration_part -> ¦Å
+reduce label_declaration_part -> e
 -1
 -1
 -1
@@ -18733,13 +18733,10 @@ shift 20
 -1
 -1
 -1
-reduce label_declaration_part -> ¦Å
+reduce label_declaration_part -> e
 -1
 -1
-reduce label_declaration_part -> ¦Å
--1
--1
--1
+reduce label_declaration_part -> e
 -1
 -1
 -1
@@ -18750,10 +18747,13 @@ reduce label_declaration_part -> ¦Å
 -1
 -1
 -1
-reduce label_declaration_part -> ¦Å
 -1
 -1
-reduce label_declaration_part -> ¦Å
+-1
+reduce label_declaration_part -> e
+-1
+-1
+reduce label_declaration_part -> e
 -1
 -1
 -1
@@ -25742,7 +25742,7 @@ shift 227
 -1
 -1
 -1
-reduce variant_part -> ¦Å
+reduce variant_part -> e
 -1
 -1
 -1
@@ -35215,7 +35215,7 @@ shift 44
 -1
 -1
 -1
-reduce procedure_and_function_declaration_part -> ¦Å
+reduce procedure_and_function_declaration_part -> e
 -1
 -1
 shift 45
@@ -37204,7 +37204,7 @@ shift 31
 -1
 -1
 -1
-reduce constant_definition_part -> ¦Å
+reduce constant_definition_part -> e
 -1
 -1
 -1
@@ -37225,13 +37225,10 @@ reduce constant_definition_part -> ¦Å
 -1
 -1
 -1
-reduce constant_definition_part -> ¦Å
+reduce constant_definition_part -> e
 -1
 -1
-reduce constant_definition_part -> ¦Å
--1
--1
--1
+reduce constant_definition_part -> e
 -1
 -1
 -1
@@ -37242,10 +37239,13 @@ reduce constant_definition_part -> ¦Å
 -1
 -1
 -1
-reduce constant_definition_part -> ¦Å
 -1
 -1
-reduce constant_definition_part -> ¦Å
+-1
+reduce constant_definition_part -> e
+-1
+-1
+reduce constant_definition_part -> e
 -1
 -1
 -1
@@ -53887,7 +53887,7 @@ Lee 269
 -1
 -1
 -1
-reduce type_definition_part -> ¦Å
+reduce type_definition_part -> e
 -1
 -1
 -1
@@ -53908,10 +53908,10 @@ reduce type_definition_part -> ¦Å
 -1
 -1
 -1
-reduce type_definition_part -> ¦Å
+reduce type_definition_part -> e
 -1
 -1
-reduce type_definition_part -> ¦Å
+reduce type_definition_part -> e
 -1
 -1
 -1
@@ -53928,7 +53928,7 @@ reduce type_definition_part -> ¦Å
 shift 78
 -1
 -1
-reduce type_definition_part -> ¦Å
+reduce type_definition_part -> e
 -1
 -1
 -1
@@ -61319,7 +61319,7 @@ shift 227
 -1
 -1
 -1
-reduce variant_part -> ¦Å
+reduce variant_part -> e
 -1
 -1
 -1
@@ -69962,7 +69962,7 @@ shift 434
 -1
 -1
 -1
-reduce non_labeled_closed_statement -> ¦Å
+reduce non_labeled_closed_statement -> e
 -1
 -1
 shift 435
@@ -69998,7 +69998,7 @@ shift 439
 -1
 shift 440
 -1
-reduce non_labeled_closed_statement -> ¦Å
+reduce non_labeled_closed_statement -> e
 -1
 -1
 -1
@@ -71575,7 +71575,7 @@ Lee 357
 -1
 -1
 -1
-reduce variable_declaration_part -> ¦Å
+reduce variable_declaration_part -> e
 -1
 -1
 -1
@@ -71596,10 +71596,10 @@ reduce variable_declaration_part -> ¦Å
 -1
 -1
 -1
-reduce variable_declaration_part -> ¦Å
+reduce variable_declaration_part -> e
 -1
 -1
-reduce variable_declaration_part -> ¦Å
+reduce variable_declaration_part -> e
 -1
 -1
 -1
@@ -78605,7 +78605,7 @@ shift 227
 -1
 -1
 -1
-reduce variant_part -> ¦Å
+reduce variant_part -> e
 -1
 -1
 -1
@@ -88253,7 +88253,7 @@ shift 434
 -1
 -1
 -1
-reduce non_labeled_closed_statement -> ¦Å
+reduce non_labeled_closed_statement -> e
 -1
 -1
 shift 435
@@ -88289,7 +88289,7 @@ shift 439
 -1
 shift 440
 -1
-reduce non_labeled_closed_statement -> ¦Å
+reduce non_labeled_closed_statement -> e
 -1
 -1
 -1
@@ -88490,7 +88490,7 @@ shift 591
 -1
 shift 592
 -1
-reduce non_labeled_closed_statement -> ¦Å
+reduce non_labeled_closed_statement -> e
 -1
 -1
 -1
@@ -88498,7 +88498,7 @@ reduce non_labeled_closed_statement -> ¦Å
 -1
 -1
 -1
-reduce non_labeled_closed_statement -> ¦Å
+reduce non_labeled_closed_statement -> e
 -1
 -1
 shift 593
@@ -89485,7 +89485,7 @@ shift 44
 -1
 -1
 -1
-reduce procedure_and_function_declaration_part -> ¦Å
+reduce procedure_and_function_declaration_part -> e
 -1
 -1
 shift 45
@@ -99509,7 +99509,7 @@ shift 433
 -1
 -1
 -1
-reduce non_labeled_closed_statement -> ¦Å
+reduce non_labeled_closed_statement -> e
 -1
 -1
 shift 435
@@ -99545,7 +99545,7 @@ shift 439
 -1
 shift 440
 -1
-reduce non_labeled_closed_statement -> ¦Å
+reduce non_labeled_closed_statement -> e
 -1
 -1
 -1
@@ -99710,7 +99710,7 @@ shift 434
 -1
 -1
 -1
-reduce non_labeled_closed_statement -> ¦Å
+reduce non_labeled_closed_statement -> e
 -1
 -1
 shift 435
@@ -99746,7 +99746,7 @@ shift 439
 -1
 shift 440
 -1
-reduce non_labeled_closed_statement -> ¦Å
+reduce non_labeled_closed_statement -> e
 -1
 -1
 -1
@@ -118805,7 +118805,7 @@ shift 434
 -1
 -1
 -1
-reduce non_labeled_closed_statement -> ¦Å
+reduce non_labeled_closed_statement -> e
 -1
 -1
 shift 435
@@ -118841,7 +118841,7 @@ shift 439
 -1
 shift 440
 -1
-reduce non_labeled_closed_statement -> ¦Å
+reduce non_labeled_closed_statement -> e
 -1
 -1
 -1
@@ -119042,7 +119042,7 @@ shift 591
 -1
 shift 592
 -1
-reduce non_labeled_closed_statement -> ¦Å
+reduce non_labeled_closed_statement -> e
 -1
 -1
 -1
@@ -119050,7 +119050,7 @@ reduce non_labeled_closed_statement -> ¦Å
 -1
 -1
 -1
-reduce non_labeled_closed_statement -> ¦Å
+reduce non_labeled_closed_statement -> e
 -1
 -1
 shift 593
@@ -129056,7 +129056,7 @@ shift 227
 -1
 -1
 -1
-reduce variant_part -> ¦Å
+reduce variant_part -> e
 -1
 -1
 -1
@@ -164230,8 +164230,8 @@ shift 434
 -1
 -1
 -1
-reduce non_labeled_closed_statement -> ¦Å
-reduce non_labeled_closed_statement -> ¦Å
+reduce non_labeled_closed_statement -> e
+reduce non_labeled_closed_statement -> e
 -1
 -1
 shift 1040
@@ -164267,7 +164267,7 @@ shift 1044
 -1
 shift 1045
 -1
-reduce non_labeled_closed_statement -> ¦Å
+reduce non_labeled_closed_statement -> e
 -1
 -1
 -1
@@ -167282,7 +167282,7 @@ shift 591
 -1
 shift 592
 -1
-reduce non_labeled_closed_statement -> ¦Å
+reduce non_labeled_closed_statement -> e
 -1
 -1
 -1
@@ -167290,7 +167290,7 @@ reduce non_labeled_closed_statement -> ¦Å
 -1
 -1
 -1
-reduce non_labeled_closed_statement -> ¦Å
+reduce non_labeled_closed_statement -> e
 -1
 -1
 shift 593
@@ -167483,7 +167483,7 @@ shift 591
 -1
 shift 592
 -1
-reduce non_labeled_closed_statement -> ¦Å
+reduce non_labeled_closed_statement -> e
 -1
 -1
 -1
@@ -167491,7 +167491,7 @@ reduce non_labeled_closed_statement -> ¦Å
 -1
 -1
 -1
-reduce non_labeled_closed_statement -> ¦Å
+reduce non_labeled_closed_statement -> e
 -1
 -1
 shift 593
@@ -170663,7 +170663,7 @@ shift 434
 -1
 -1
 -1
-reduce non_labeled_closed_statement -> ¦Å
+reduce non_labeled_closed_statement -> e
 -1
 -1
 shift 435
@@ -170699,7 +170699,7 @@ shift 439
 -1
 shift 440
 -1
-reduce non_labeled_closed_statement -> ¦Å
+reduce non_labeled_closed_statement -> e
 -1
 -1
 -1
@@ -173276,7 +173276,7 @@ shift 434
 -1
 -1
 -1
-reduce non_labeled_closed_statement -> ¦Å
+reduce non_labeled_closed_statement -> e
 -1
 -1
 shift 435
@@ -173312,7 +173312,7 @@ shift 439
 -1
 shift 440
 -1
-reduce non_labeled_closed_statement -> ¦Å
+reduce non_labeled_closed_statement -> e
 -1
 -1
 -1
@@ -174482,7 +174482,7 @@ shift 434
 -1
 -1
 -1
-reduce non_labeled_closed_statement -> ¦Å
+reduce non_labeled_closed_statement -> e
 -1
 -1
 shift 435
@@ -174518,7 +174518,7 @@ shift 439
 -1
 shift 440
 -1
-reduce non_labeled_closed_statement -> ¦Å
+reduce non_labeled_closed_statement -> e
 -1
 -1
 -1
@@ -177130,7 +177130,7 @@ shift 50
 -1
 -1
 -1
-reduce variant_part -> ¦Å
+reduce variant_part -> e
 -1
 -1
 -1
@@ -209858,7 +209858,7 @@ shift 434
 -1
 -1
 -1
-reduce non_labeled_closed_statement -> ¦Å
+reduce non_labeled_closed_statement -> e
 -1
 -1
 shift 435
@@ -209894,7 +209894,7 @@ shift 439
 -1
 shift 440
 -1
-reduce non_labeled_closed_statement -> ¦Å
+reduce non_labeled_closed_statement -> e
 -1
 -1
 -1
@@ -210095,7 +210095,7 @@ shift 591
 -1
 shift 592
 -1
-reduce non_labeled_closed_statement -> ¦Å
+reduce non_labeled_closed_statement -> e
 -1
 -1
 -1
@@ -210103,7 +210103,7 @@ reduce non_labeled_closed_statement -> ¦Å
 -1
 -1
 -1
-reduce non_labeled_closed_statement -> ¦Å
+reduce non_labeled_closed_statement -> e
 -1
 -1
 shift 593
@@ -223726,7 +223726,7 @@ shift 434
 -1
 -1
 -1
-reduce non_labeled_closed_statement -> ¦Å
+reduce non_labeled_closed_statement -> e
 -1
 -1
 -1
@@ -223763,7 +223763,7 @@ shift 1433
 -1
 shift 1434
 -1
-reduce non_labeled_closed_statement -> ¦Å
+reduce non_labeled_closed_statement -> e
 -1
 -1
 -1
@@ -223771,7 +223771,7 @@ reduce non_labeled_closed_statement -> ¦Å
 -1
 -1
 -1
-reduce non_labeled_closed_statement -> ¦Å
+reduce non_labeled_closed_statement -> e
 -1
 -1
 shift 1435
@@ -224366,7 +224366,7 @@ shift 591
 -1
 shift 592
 -1
-reduce non_labeled_closed_statement -> ¦Å
+reduce non_labeled_closed_statement -> e
 -1
 -1
 -1
@@ -224374,7 +224374,7 @@ reduce non_labeled_closed_statement -> ¦Å
 -1
 -1
 -1
-reduce non_labeled_closed_statement -> ¦Å
+reduce non_labeled_closed_statement -> e
 -1
 -1
 shift 593
@@ -224567,7 +224567,7 @@ shift 591
 -1
 shift 592
 -1
-reduce non_labeled_closed_statement -> ¦Å
+reduce non_labeled_closed_statement -> e
 -1
 -1
 -1
@@ -224575,7 +224575,7 @@ reduce non_labeled_closed_statement -> ¦Å
 -1
 -1
 -1
-reduce non_labeled_closed_statement -> ¦Å
+reduce non_labeled_closed_statement -> e
 -1
 -1
 shift 593
@@ -255485,7 +255485,7 @@ shift 434
 -1
 -1
 -1
-reduce non_labeled_closed_statement -> ¦Å
+reduce non_labeled_closed_statement -> e
 -1
 -1
 shift 435
@@ -255521,7 +255521,7 @@ shift 439
 -1
 shift 440
 -1
-reduce non_labeled_closed_statement -> ¦Å
+reduce non_labeled_closed_statement -> e
 -1
 -1
 -1
@@ -275182,8 +275182,8 @@ shift 1039
 -1
 -1
 -1
-reduce non_labeled_closed_statement -> ¦Å
-reduce non_labeled_closed_statement -> ¦Å
+reduce non_labeled_closed_statement -> e
+reduce non_labeled_closed_statement -> e
 -1
 -1
 shift 1040
@@ -275219,7 +275219,7 @@ shift 1044
 -1
 shift 1045
 -1
-reduce non_labeled_closed_statement -> ¦Å
+reduce non_labeled_closed_statement -> e
 -1
 -1
 -1
@@ -275384,7 +275384,7 @@ shift 434
 -1
 -1
 -1
-reduce non_labeled_closed_statement -> ¦Å
+reduce non_labeled_closed_statement -> e
 -1
 -1
 shift 435
@@ -275420,7 +275420,7 @@ shift 439
 -1
 shift 440
 -1
-reduce non_labeled_closed_statement -> ¦Å
+reduce non_labeled_closed_statement -> e
 -1
 -1
 -1
@@ -288047,7 +288047,7 @@ shift 434
 -1
 -1
 -1
-reduce non_labeled_closed_statement -> ¦Å
+reduce non_labeled_closed_statement -> e
 -1
 -1
 shift 435
@@ -288083,7 +288083,7 @@ shift 439
 -1
 shift 440
 -1
-reduce non_labeled_closed_statement -> ¦Å
+reduce non_labeled_closed_statement -> e
 -1
 -1
 -1
@@ -288284,7 +288284,7 @@ shift 591
 -1
 shift 592
 -1
-reduce non_labeled_closed_statement -> ¦Å
+reduce non_labeled_closed_statement -> e
 -1
 -1
 -1
@@ -288292,7 +288292,7 @@ reduce non_labeled_closed_statement -> ¦Å
 -1
 -1
 -1
-reduce non_labeled_closed_statement -> ¦Å
+reduce non_labeled_closed_statement -> e
 -1
 -1
 shift 593
@@ -293911,7 +293911,7 @@ shift 50
 -1
 -1
 -1
-reduce variant_part -> ¦Å
+reduce variant_part -> e
 -1
 -1
 -1
@@ -304328,7 +304328,7 @@ shift 434
 -1
 -1
 -1
-reduce non_labeled_closed_statement -> ¦Å
+reduce non_labeled_closed_statement -> e
 -1
 -1
 shift 435
@@ -304364,7 +304364,7 @@ shift 439
 -1
 shift 440
 -1
-reduce non_labeled_closed_statement -> ¦Å
+reduce non_labeled_closed_statement -> e
 -1
 -1
 -1
@@ -326236,8 +326236,8 @@ shift 434
 -1
 -1
 -1
-reduce non_labeled_closed_statement -> ¦Å
-reduce non_labeled_closed_statement -> ¦Å
+reduce non_labeled_closed_statement -> e
+reduce non_labeled_closed_statement -> e
 -1
 -1
 shift 1040
@@ -326273,7 +326273,7 @@ shift 1044
 -1
 shift 1045
 -1
-reduce non_labeled_closed_statement -> ¦Å
+reduce non_labeled_closed_statement -> e
 -1
 -1
 -1
@@ -326839,8 +326839,8 @@ shift 434
 -1
 -1
 -1
-reduce non_labeled_closed_statement -> ¦Å
-reduce non_labeled_closed_statement -> ¦Å
+reduce non_labeled_closed_statement -> e
+reduce non_labeled_closed_statement -> e
 -1
 -1
 shift 1040
@@ -326876,7 +326876,7 @@ shift 1044
 -1
 shift 1045
 -1
-reduce non_labeled_closed_statement -> ¦Å
+reduce non_labeled_closed_statement -> e
 -1
 -1
 -1
@@ -327040,8 +327040,8 @@ shift 434
 -1
 -1
 -1
-reduce non_labeled_closed_statement -> ¦Å
-reduce non_labeled_closed_statement -> ¦Å
+reduce non_labeled_closed_statement -> e
+reduce non_labeled_closed_statement -> e
 -1
 -1
 shift 1040
@@ -327077,7 +327077,7 @@ shift 1044
 -1
 shift 1045
 -1
-reduce non_labeled_closed_statement -> ¦Å
+reduce non_labeled_closed_statement -> e
 -1
 -1
 -1
@@ -336889,7 +336889,7 @@ shift 1428
 -1
 -1
 -1
-reduce non_labeled_closed_statement -> ¦Å
+reduce non_labeled_closed_statement -> e
 -1
 -1
 -1
@@ -336926,7 +336926,7 @@ shift 1433
 -1
 shift 1434
 -1
-reduce non_labeled_closed_statement -> ¦Å
+reduce non_labeled_closed_statement -> e
 -1
 -1
 -1
@@ -336934,7 +336934,7 @@ reduce non_labeled_closed_statement -> ¦Å
 -1
 -1
 -1
-reduce non_labeled_closed_statement -> ¦Å
+reduce non_labeled_closed_statement -> e
 -1
 -1
 shift 1435
@@ -337127,7 +337127,7 @@ shift 591
 -1
 shift 592
 -1
-reduce non_labeled_closed_statement -> ¦Å
+reduce non_labeled_closed_statement -> e
 -1
 -1
 -1
@@ -337135,7 +337135,7 @@ reduce non_labeled_closed_statement -> ¦Å
 -1
 -1
 -1
-reduce non_labeled_closed_statement -> ¦Å
+reduce non_labeled_closed_statement -> e
 -1
 -1
 shift 593
@@ -344930,7 +344930,7 @@ shift 227
 -1
 -1
 -1
-reduce variant_part -> ¦Å
+reduce variant_part -> e
 -1
 -1
 -1
@@ -361211,7 +361211,7 @@ shift 434
 -1
 -1
 -1
-reduce non_labeled_closed_statement -> ¦Å
+reduce non_labeled_closed_statement -> e
 -1
 -1
 shift 435
@@ -361247,7 +361247,7 @@ shift 439
 -1
 shift 440
 -1
-reduce non_labeled_closed_statement -> ¦Å
+reduce non_labeled_closed_statement -> e
 -1
 -1
 -1
@@ -372065,7 +372065,7 @@ shift 434
 -1
 -1
 -1
-reduce non_labeled_closed_statement -> ¦Å
+reduce non_labeled_closed_statement -> e
 -1
 -1
 shift 435
@@ -372101,7 +372101,7 @@ shift 439
 -1
 shift 440
 -1
-reduce non_labeled_closed_statement -> ¦Å
+reduce non_labeled_closed_statement -> e
 -1
 -1
 -1
@@ -378898,7 +378898,7 @@ shift 434
 -1
 -1
 -1
-reduce non_labeled_closed_statement -> ¦Å
+reduce non_labeled_closed_statement -> e
 -1
 -1
 -1
@@ -378935,7 +378935,7 @@ shift 1433
 -1
 shift 1434
 -1
-reduce non_labeled_closed_statement -> ¦Å
+reduce non_labeled_closed_statement -> e
 -1
 -1
 -1
@@ -378943,7 +378943,7 @@ reduce non_labeled_closed_statement -> ¦Å
 -1
 -1
 -1
-reduce non_labeled_closed_statement -> ¦Å
+reduce non_labeled_closed_statement -> e
 -1
 -1
 shift 1435
@@ -379501,7 +379501,7 @@ shift 434
 -1
 -1
 -1
-reduce non_labeled_closed_statement -> ¦Å
+reduce non_labeled_closed_statement -> e
 -1
 -1
 -1
@@ -379538,7 +379538,7 @@ shift 1433
 -1
 shift 1434
 -1
-reduce non_labeled_closed_statement -> ¦Å
+reduce non_labeled_closed_statement -> e
 -1
 -1
 -1
@@ -379546,7 +379546,7 @@ reduce non_labeled_closed_statement -> ¦Å
 -1
 -1
 -1
-reduce non_labeled_closed_statement -> ¦Å
+reduce non_labeled_closed_statement -> e
 -1
 -1
 shift 1435
@@ -379702,7 +379702,7 @@ shift 434
 -1
 -1
 -1
-reduce non_labeled_closed_statement -> ¦Å
+reduce non_labeled_closed_statement -> e
 -1
 -1
 -1
@@ -379739,7 +379739,7 @@ shift 1433
 -1
 shift 1434
 -1
-reduce non_labeled_closed_statement -> ¦Å
+reduce non_labeled_closed_statement -> e
 -1
 -1
 -1
@@ -379747,7 +379747,7 @@ reduce non_labeled_closed_statement -> ¦Å
 -1
 -1
 -1
-reduce non_labeled_closed_statement -> ¦Å
+reduce non_labeled_closed_statement -> e
 -1
 -1
 shift 1435
@@ -397993,8 +397993,8 @@ shift 434
 -1
 -1
 -1
-reduce non_labeled_closed_statement -> ¦Å
-reduce non_labeled_closed_statement -> ¦Å
+reduce non_labeled_closed_statement -> e
+reduce non_labeled_closed_statement -> e
 -1
 -1
 shift 1040
@@ -398030,7 +398030,7 @@ shift 1044
 -1
 shift 1045
 -1
-reduce non_labeled_closed_statement -> ¦Å
+reduce non_labeled_closed_statement -> e
 -1
 -1
 -1
@@ -400241,7 +400241,7 @@ shift 591
 -1
 shift 592
 -1
-reduce non_labeled_closed_statement -> ¦Å
+reduce non_labeled_closed_statement -> e
 -1
 -1
 -1
@@ -400249,7 +400249,7 @@ reduce non_labeled_closed_statement -> ¦Å
 -1
 -1
 -1
-reduce non_labeled_closed_statement -> ¦Å
+reduce non_labeled_closed_statement -> e
 -1
 -1
 shift 593
@@ -407039,7 +407039,7 @@ shift 227
 -1
 -1
 -1
-reduce variant_part -> ¦Å
+reduce variant_part -> e
 -1
 -1
 -1
@@ -419300,7 +419300,7 @@ shift 434
 -1
 -1
 -1
-reduce non_labeled_closed_statement -> ¦Å
+reduce non_labeled_closed_statement -> e
 -1
 -1
 shift 435
@@ -419336,7 +419336,7 @@ shift 439
 -1
 shift 440
 -1
-reduce non_labeled_closed_statement -> ¦Å
+reduce non_labeled_closed_statement -> e
 -1
 -1
 -1
@@ -428746,7 +428746,7 @@ shift 434
 -1
 -1
 -1
-reduce non_labeled_closed_statement -> ¦Å
+reduce non_labeled_closed_statement -> e
 -1
 -1
 -1
@@ -428783,7 +428783,7 @@ shift 1433
 -1
 shift 1434
 -1
-reduce non_labeled_closed_statement -> ¦Å
+reduce non_labeled_closed_statement -> e
 -1
 -1
 -1
@@ -428791,7 +428791,7 @@ reduce non_labeled_closed_statement -> ¦Å
 -1
 -1
 -1
-reduce non_labeled_closed_statement -> ¦Å
+reduce non_labeled_closed_statement -> e
 -1
 -1
 shift 1435
@@ -429787,7 +429787,7 @@ shift 50
 -1
 -1
 -1
-reduce variant_part -> ¦Å
+reduce variant_part -> e
 -1
 -1
 -1
@@ -434977,8 +434977,8 @@ shift 434
 -1
 -1
 -1
-reduce non_labeled_closed_statement -> ¦Å
-reduce non_labeled_closed_statement -> ¦Å
+reduce non_labeled_closed_statement -> e
+reduce non_labeled_closed_statement -> e
 -1
 -1
 shift 1040
@@ -435014,7 +435014,7 @@ shift 1044
 -1
 shift 1045
 -1
-reduce non_labeled_closed_statement -> ¦Å
+reduce non_labeled_closed_statement -> e
 -1
 -1
 -1
@@ -438395,7 +438395,7 @@ shift 434
 -1
 -1
 -1
-reduce non_labeled_closed_statement -> ¦Å
+reduce non_labeled_closed_statement -> e
 -1
 -1
 shift 435
@@ -438431,7 +438431,7 @@ shift 439
 -1
 shift 440
 -1
-reduce non_labeled_closed_statement -> ¦Å
+reduce non_labeled_closed_statement -> e
 -1
 -1
 -1
@@ -444826,7 +444826,7 @@ shift 434
 -1
 -1
 -1
-reduce non_labeled_closed_statement -> ¦Å
+reduce non_labeled_closed_statement -> e
 -1
 -1
 -1
@@ -444863,7 +444863,7 @@ shift 1433
 -1
 shift 1434
 -1
-reduce non_labeled_closed_statement -> ¦Å
+reduce non_labeled_closed_statement -> e
 -1
 -1
 -1
@@ -444871,7 +444871,7 @@ reduce non_labeled_closed_statement -> ¦Å
 -1
 -1
 -1
-reduce non_labeled_closed_statement -> ¦Å
+reduce non_labeled_closed_statement -> e
 -1
 -1
 shift 1435
@@ -445264,7 +445264,7 @@ shift 50
 -1
 -1
 -1
-reduce variant_part -> ¦Å
+reduce variant_part -> e
 -1
 -1
 -1
